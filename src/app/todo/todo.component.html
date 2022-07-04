@@ -1,5 +1,20 @@
 <mat-card>
   <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="newTodoForm" >
+      <mat-form-field>
+        <mat-label>
+          Beschreibung
+        </mat-label>
+        <input matInput formControlName="description" placeholder="Type in a description" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
     <mat-card-title>📝📝 Todo</mat-card-title>
   </mat-card-header>
   <mat-card-content>

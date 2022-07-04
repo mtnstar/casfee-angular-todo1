@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from './todo.type';
+import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-todo',
@@ -8,7 +10,13 @@ import { TodoItem } from './todo.type';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.newTodoForm = new FormGroup({
+      'description': new FormControl('', Validators.required)
+    })
+  }
+
+  public newTodoForm: FormGroup;
 
   ngOnInit(): void {
   }
