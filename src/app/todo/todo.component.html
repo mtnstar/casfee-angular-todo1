@@ -2,13 +2,18 @@
   <mat-card-header>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="newTodoForm" >
+    <form [formGroup]="newTodoForm" (ngSubmit)="onAdd()" >
       <mat-form-field>
         <mat-label>
           Beschreibung
         </mat-label>
         <input matInput formControlName="description" placeholder="Type in a description" />
+        <mat-hint>Bitte zwingend Text angeben</mat-hint>
+        <!-- <mat-error *ngIf="" -->
       </mat-form-field>
+      <mat-card-actions>
+        <button type="Submit">Abschicke</button>
+      </mat-card-actions>
     </form>
   </mat-card-content>
 </mat-card>

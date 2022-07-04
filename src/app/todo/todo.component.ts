@@ -29,4 +29,14 @@ export class TodoComponent implements OnInit {
     {id: 5, checked: false, description: 'Todos erledigen'}
   ];
 
+  public onAdd() {
+    if(this.newTodoForm.valid && this.newTodoForm.dirty) {
+      this.items.push({
+        id: this.items.length + 1,
+        description: this.newTodoForm.get('description')?.value,
+        checked: false
+      })
+    }
+  }
+
 }
