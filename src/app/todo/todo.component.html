@@ -5,7 +5,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let open of items | todos: false">
-        <mat-checkbox [checked]="open.checked">
+        <mat-checkbox [(ngModel)]="open.checked">
           {{ open.description }}
         </mat-checkbox>
       </mat-list-item>
@@ -20,7 +20,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let done of items | todos: true">
-        <mat-checkbox [checked]="done.checked">
+        <mat-checkbox [(ngModel)]="done.checked">
           {{ done.description }}
         </mat-checkbox>
       </mat-list-item>
