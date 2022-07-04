@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from './todo.type';
-import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroupDirective, FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
@@ -29,7 +29,7 @@ export class TodoComponent implements OnInit {
     {id: 5, checked: false, description: 'Todos erledigen'}
   ];
 
-  public onAdd() {
+  public onAdd(myForm: FormGroupDirective) {
     if(this.newTodoForm.valid && this.newTodoForm.dirty) {
       this.items.push({
         id: this.items.length + 1,
@@ -37,6 +37,9 @@ export class TodoComponent implements OnInit {
         checked: false
       })
     }
+    this.newTodoForm.reset();
+    this.newTodoForm.markAsUntouched();
+    myForm.resetForm();
   }
 
 }
